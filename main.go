@@ -26,7 +26,7 @@ func main() {
 		c.String(http.StatusOK, "hello world")
 	})
 
-	r.POST("/myip", func(c* gin.Context) {
+	r.GET("/myip", func(c* gin.Context) {
 
 		ip, port, _ := net.SplitHostPort(c.Request.RemoteAddr)
 
@@ -34,6 +34,6 @@ func main() {
 	})
 
 	r.Run(*addr)
-	
+
 	fmt.Println("关闭服务器")
 }
